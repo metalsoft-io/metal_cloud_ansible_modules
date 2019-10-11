@@ -106,8 +106,3 @@ metalcloud_user: "user@bigstep.com"
       - name: install haproxy
         yum: name=haproxy state=present
  ````
- 
-```
-
-
-##
