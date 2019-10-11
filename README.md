@@ -14,7 +14,7 @@ metalcloud_user: "user@bigstep.com"
 ```
 
 ## Examples:
-### To create an infrastructure:
+### Creating an infrastructure,an instance array and deploying it
 ```
 ---
 - hosts: localhost
@@ -73,7 +73,7 @@ metalcloud_user: "user@bigstep.com"
          api_key: "{{metalcloud_api_key}}"
          api_endpoint: "{{metalcloud_api_endpoint}}"  
 ```
-## Pulling hosts and ssh credentials
+## Pulling hosts and ssh credentials and installing haproxy on the hosts
 ```
 ---
 - hosts: localhost
@@ -106,8 +106,3 @@ metalcloud_user: "user@bigstep.com"
       - name: install haproxy
         yum: name=haproxy state=present
  ````
- 
-```
-
-
-##
