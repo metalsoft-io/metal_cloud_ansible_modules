@@ -46,8 +46,6 @@ metalcloud_user: "user@bigstep.com"
                firewall_rule_ip_address_type: 'ipv4'
                firewall_rule_source_ip_address_range_start: '0.0.0.0'
                firewall_rule_source_ip_address_range_end: '0.0.0.0'
-               firewall_rule_source_ip_address_range_start: '0.0.0.0'
-               firewall_rule_source_ip_address_range_end: '0.0.0.0'
 
         user: "{{metalcloud_user}}"
         api_key: "{{metalcloud_api_key}}"
