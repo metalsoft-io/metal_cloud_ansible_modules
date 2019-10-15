@@ -1,12 +1,12 @@
 ---
 - hosts: localhost
   vars: 
-    infrastructure_label: "my-ansible-infra-13"
+    infrastructure_label: "test-san-2"
   tasks:
     - name: create a blank infrastructure
       metalcloud_infrastructure: 
         infrastructure_label: "{{infrastructure_label}}"
-        datacenter_name: 'uk-reading'
+        datacenter_name: 'us-santaclara'
         user: "{{metalcloud_user}}"
         api_key: "{{metalcloud_api_key}}"
         api_endpoint: "{{metalcloud_api_endpoint}}"
@@ -16,7 +16,7 @@
       metalcloud_instance_array:
         infrastructure_id: "{{infrastructure.infrastructure_id}}"
         instance_array_label: 'my-test'
-        instance_array_instance_count: 2  
+        instance_array_instance_count: 1  
         instance_array_ram_gbytes: 32
         instance_array_processor_core_count: 8
         instance_array_processor_count: 1 
@@ -48,7 +48,7 @@
     - name: deploy changes if needed.
       metalcloud_infrastructure_deploy:
          infrastructure_id: "{{infrastructure.infrastructure_id}}"
-         
+        
          user: "{{metalcloud_user}}"
          api_key: "{{metalcloud_api_key}}"
          api_endpoint: "{{metalcloud_api_endpoint}}"
