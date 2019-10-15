@@ -19,6 +19,9 @@
         name: "{{item.instance_subdomain_permanent}}"
         ansible_ssh_port: "{{item.instance_credentials.ssh.port}}"
         ansible_ssh_user: "{{item.instance_credentials.ssh.username}}"
+        #if your SSH key has been configured in the cloud control panel and has been provisioned on the servers
+        #your ansible script should run without the need for ssh_pass program
+        #if that's not the case, install ssh_pass and uncomment the following line
         #ansible_ssh_pass: "{{item.instance_credentials.ssh.initial_password}}"
         groups: "haproxy"
       with_items: "{{haproxy.instances}}"
