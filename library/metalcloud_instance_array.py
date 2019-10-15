@@ -117,7 +117,6 @@ def run_module():
         argument_spec=module_args,
         supports_check_mode=True
     )
-    print(module.__dict__.keys())
 
     mc_client = API.getInstance(
        {"strJSONRPCRouterURL": module.params['api_endpoint']},
@@ -156,7 +155,6 @@ def run_module():
             if(k not in ['instance_array_boot_method','infrastructure_id']):
                 old_v=getattr(operation_obj, k)
                 if old_v != module.params[k]:
-#                    print("changed key:"+k)
                     setattr(operation_obj, k, module.params[k])
                     result['changed'] = True
         

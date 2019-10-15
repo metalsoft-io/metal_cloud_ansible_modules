@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   vars: 
-    infrastructure_label: "my-ansible-infra-11"
+    infrastructure_label: "{{metalcloud_infrastructure}}"
     
   tasks:
     - name: get credentials

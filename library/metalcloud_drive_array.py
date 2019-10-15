@@ -139,8 +139,6 @@ def run_module():
         for k in keys:
                 old_v=getattr(operation_obj, k)
                 if old_v != module.params[k]:
-                    print("changed key:"+k+" old val="+str(old_v)+" new val="+str(module.params[k]))
-
                     setattr(operation_obj, k, module.params[k])
                     result['changed'] = True
 
