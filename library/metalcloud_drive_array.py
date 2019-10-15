@@ -131,6 +131,7 @@ def run_module():
     
 
     if (not exists):
+      params['volume_template_id']=volume_template_id
       mc_client.drive_array_create(module.params['infrastructure_id'], params)
       result['changed'] = True
     else:
