@@ -66,7 +66,7 @@ def run_module():
         instance_array_id=dict(type='int', required=True),
         drive_array_label=dict(type='str', required=True),
         volume_template_label=dict(type='str', required=True),
-        drive_array_storage_type=dict(type='str', required=False, default='iscsi_ssd'),
+        drive_array_storage_type=dict(type='str', required=False, default="auto"),
         drive_array_count=dict(type='int', required=False, default=1),
         drive_size_mbytes_default=dict(type='int', required=False, default=40960)
    )
@@ -128,6 +128,11 @@ def run_module():
     #get all params
     keys=[k for k in module_args.keys() if k not in ['user','api_key','api_endpoint','instance_array_label','infrastructure_label','volume_template_label']]
     params = dict(zip(keys, [module.params[k] for k in keys]))
+
+
+    if (module.params['drive_array_storage_type']=='auto'):
+        user_limits = mc_client.infrastructure_user_limits(module.params['infrastructure_id'])
+        params['drive_array_storage_type'] = user_limits["storage_types"][0]
     
 
     if (not exists):
