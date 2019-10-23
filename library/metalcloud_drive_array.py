@@ -132,7 +132,7 @@ def run_module():
 
     if (module.params['drive_array_storage_type']=='auto'):
         user_limits = mc_client.infrastructure_user_limits(module.params['infrastructure_id'])
-        params['drive_array_storage_type'] = user_limits["storage_types"][0]
+        params['drive_array_storage_type'] = user_limits.storage_types[0]
     
 
     if (not exists):
